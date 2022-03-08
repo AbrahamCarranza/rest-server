@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, isValidObjectId } = require('mongoose');
 
 const usuarioSchema = Schema({
     strNombre: {
@@ -33,7 +33,8 @@ const usuarioSchema = Schema({
 });
 
 usuarioSchema.methods.toJSON = function() {
-    const { __v, strContrasena, ...usuario } = this.toObject();
+    const { __v, strContrasena, _id, ...usuario } = this.toObject();
+    usuario.uid = _id;
     return usuario;
 };
 

@@ -38,7 +38,7 @@ const usuariosPost = async(req, res) => {
     await usuario.save();
 
     res.status(200).json({
-        msg: 'El usuario hasido registrado exitosamente',
+        msg: 'El usuario ha sido registrado exitosamente',
         usuario
     });
 };
@@ -70,15 +70,9 @@ const usuariosDelete = async(req, res) => {
 
     const usuario = await Usuario.findByIdAndUpdate(id, { blnEstatus: false });
 
-    res.status(200).json({
-        msg: 'El usuario hasido desactivado exitasamente.',
-    });
-};
 
-
-const usuariosPatch = (req, res) => {
     res.status(200).json({
-        msg: 'patch'
+        msg: 'El usuario ha sido desactivado exitasamente.'
     });
 };
 
@@ -88,5 +82,4 @@ module.exports = {
     usuariosPost: usuariosPost,
     usuariosPut: usuariosPut,
     usuariosDelete: usuariosDelete,
-    usuariosPatch: usuariosPatch,
 };
