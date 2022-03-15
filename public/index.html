@@ -27,6 +27,8 @@
                 id_token: response.credential
             };
 
+            // 'http://localhost:8080/api/auth/google-sign-in'
+
             fetch('https://rest-server--nodejs.herokuapp.com/api/auth/google-sign-in', {
                     method: 'POST',
                     headers: {
